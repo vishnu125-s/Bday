@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Started - Kannan Stretching Shop</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 30px;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+        }
+
+        .back-btn {
+            color: white;
+            text-decoration: none;
+            padding: 8px 15px;
+            border: 2px solid white;
+            border-radius: 5px;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .back-btn:hover {
+            background-color: white;
+            color: #667eea;
+        }
+
+        main {
+            padding: 50px 0;
+        }
+
+        .page-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .page-title h1 {
+            font-size: 42px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .page-title p {
+            font-size: 18px;
+            color: #666;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .content-card {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .content-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-icon {
+            font-size: 50px;
+            margin-bottom: 15px;
+        }
+
+        .content-card h2 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 24px;
+        }
+
+        .content-card p {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .form-section {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 50px auto;
+        }
+
+        .form-section h2 {
+            color: #667eea;
+            margin-bottom: 30px;
+            text-align: center;
+            font-size: 28px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 500;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-family: inherit;
+            font-size: 14px;
+            transition: border-color 0.3s;
+        }
+
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .steps {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin: 50px 0;
+        }
+
+        .steps h2 {
+            text-align: center;
+            color: #667eea;
+            margin-bottom: 40px;
+            font-size: 28px;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .step {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            font-weight: bold;
+            margin: 0 auto 15px;
+        }
+
+        .step h3 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .step p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .pricing {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin: 50px 0;
+        }
+
+        .pricing h2 {
+            text-align: center;
+            color: #667eea;
+            margin-bottom: 40px;
+            font-size: 28px;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .pricing-card {
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .pricing-card:hover {
+            border-color: #667eea;
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.2);
+        }
+
+        .pricing-card.featured {
+            border-color: #667eea;
+            transform: scale(1.05);
+        }
+
+        .pricing-card h3 {
+            color: #667eea;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .price {
+            font-size: 36px;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+
+        .price-desc {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .features-list {
+            list-style: none;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .features-list li {
+            padding: 8px 0;
+            color: #666;
+            border-bottom: 1px solid #eee;
+        }
+
+        .features-list li:before {
+            content: "✓ ";
+            color: #667eea;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 50px;
+        }
+
+        @media (max-width: 768px) {
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+
+            .form-section {
+                padding: 20px;
+            }
+
+            .page-title h1 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header/Navigation -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">KS</div>
+                    Kannan Stretching Shop
+                </div>
+                <nav>
+                    <a href="index.html" class="back-btn">← Back Home</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Page Title -->
+        <section class="page-title">
+            <h1>Get Started With Us</h1>
+            <p>Begin your journey to perfectly stretched garments today!</p>
+        </section>
+
+        <!-- Quick Info Cards -->
+        <section class="content-grid">
+            <div class="content-card">
+                <div class="card-icon">⚡</div>
+                <h2>Quick Process</h2>
+                <p>Submit your garments, we handle the rest. Fast turnaround time with professional quality assurance at every step.</p>
+            </div>
+            <div class="content-card">
+                <div class="card-icon">💎</div>
+                <h2>Premium Quality</h2>
+                <p>We use state-of-the-art equipment and premium materials to ensure your clothes are treated with utmost care and precision.</p>
+            </div>
+            <div class="content-card">
+                <div class="card-icon">✅</div>
+                <h2>Guaranteed Results</h2>
+                <p>100% satisfaction guaranteed. If you're not happy with the results, we'll make it right at no additional cost.</p>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section class="steps">
+            <h2>How It Works</h2>
+            <div class="steps-grid">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Drop Off</h3>
+                    <p>Bring or send your garments to our shop. Our team will inspect and discuss your requirements.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Assessment</h3>
+                    <p>We carefully assess the fabric type, damage, and requirements to determine the best stretching technique.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Processing</h3>
+                    <p>Our skilled professionals use modern techniques and equipment to stretch and restore your garments.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Quality Check</h3>
+                    <p>Every garment undergoes rigorous quality inspection before being returned to ensure perfection.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <h3>Delivery</h3>
+                    <p>Your perfectly stretched garments are ready for pickup or we can deliver them to your doorstep.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">6</div>
+                    <h3>Satisfaction</h3>
+                    <p>Enjoy your garments! We're always here for any future stretching or garment care needs.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section class="pricing">
+            <h2>Our Pricing</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Basic</h3>
+                    <div class="price">₹199</div>
+                    <p class="price-desc">Per garment</p>
+                    <ul class="features-list">
+                        <li>Standard stretching</li>
+                        <li>Light cleaning</li>
+                        <li>Basic pressing</li>
+                        <li>5-7 days delivery</li>
+                    </ul>
+                    <button class="btn">Choose Plan</button>
+                </div>
+                <div class="pricing-card featured">
+                    <h3>Premium</h3>
+                    <div class="price">₹399</div>
+                    <p class="price-desc">Per garment</p>
+                    <ul class="features-list">
+                        <li>Advanced stretching</li>
+                        <li>Professional cleaning</li>
+                        <li>Expert pressing</li>
+                        <li>3-4 days delivery</li>
+                    </ul>
+                    <button class="btn">Choose Plan</button>
+                </div>
+                <div class="pricing-card">
+                    <h3>Deluxe</h3>
+                    <div class="price">₹599</div>
+                    <p class="price-desc">Per garment</p>
+                    <ul class="features-list">
+                        <li>Premium stretching</li>
+                        <li>Deep cleaning</li>
+                        <li>Professional finishing</li>
+                        <li>1-2 days delivery</li>
+                    </ul>
+                    <button class="btn">Choose Plan</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Service Request Form -->
+        <section class="form-section">
+            <h2>Book Your Service</h2>
+            <form>
+                <div class="form-group">
+                    <label for="name">Full Name *</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number *</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email">
+                </div>
+
+                <div class="form-group">
+                    <label for="service">Select Service *</label>
+                    <select id="service" name="service" required>
+                        <option value="">-- Choose a service --</option>
+                        <option value="stretching">Cloth Stretching</option>
+                        <option value="formal">Formal Wear Care</option>
+                        <option value="alterations">Custom Alterations</option>
+                        <option value="designer">Designer Pieces</option>
+                        <option value="general">General Garment Care</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="quantity">Number of Garments *</label>
+                    <input type="number" id="quantity" name="quantity" min="1" value="1" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="package">Choose Package *</label>
+                    <select id="package" name="package" required>
+                        <option value="">-- Choose a package --</option>
+                        <option value="basic">Basic (₹199)</option>
+                        <option value="premium">Premium (₹399)</option>
+                        <option value="deluxe">Deluxe (₹599)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Special Requirements / Notes</label>
+                    <textarea id="message" name="message" placeholder="Tell us about any special requests or concerns..."></textarea>
+                </div>
+
+                <button type="submit" class="btn">Book Now</button>
+            </form>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Kannan Stretching Shop. All rights reserved.</p>
+            <p>Premium Cloth Stretching & Garment Care Services</p>
+        </div>
+    </footer>
+
+    <script>
+        // Handle form submission
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for booking! We will contact you shortly to confirm your appointment.');
+            this.reset();
+        });
+
+        // Handle Choose Plan buttons
+        document.querySelectorAll('.pricing-card .btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const price = this.parentElement.querySelector('.price').textContent;
+                document.getElementById('package').value = this.parentElement.querySelector('h3').textContent.toLowerCase();
+                document.getElementById('message').focus();
+                window.scrollTo({top: document.querySelector('.form-section').offsetTop - 100, behavior: 'smooth'});
+            });
+        });
+    </script>
+</body>
+</html>
